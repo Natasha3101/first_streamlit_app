@@ -8,7 +8,7 @@ import pandas
 data = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 
 data = data.set_index('Fruit')# multi-select
-streamlit.multiselect("Pick some fruits",lit(data))
+streamlit.multiselect("Pick some fruits",list(data))
 
 streamlit.dataframe(data)
 
