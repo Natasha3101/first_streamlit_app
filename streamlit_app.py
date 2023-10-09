@@ -12,7 +12,7 @@ data = data.set_index('Fruit')
 select = streamlit.multiselect("Pick some fruits",list(data.index))
 
 show = data.loc[select]
-streamlit.dataframe(data)
+streamlit.dataframe(show)
 # spark = SparkSession.builder.appName("snow01").getOrCreate()
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header("Breakfast Menu")
