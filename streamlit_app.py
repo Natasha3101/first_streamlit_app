@@ -2,7 +2,7 @@ import streamlit
 # import pyspark
 # # import findspark
 # from pyspark.sql import SparkSession
-import  pandas as pd
+import  pandas
 
 # findspark.init()
 
