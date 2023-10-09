@@ -3,6 +3,8 @@ import streamlit
 import findspark
 from pyspark.sql import SparkSession
 
+findspark_init()
+
 spark = SparkSession.builder.appName("snow01").getOrCreate()
 
 data = spark.read.csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
