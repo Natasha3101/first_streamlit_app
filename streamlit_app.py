@@ -1,5 +1,5 @@
 import streamlit
-import pyspark
+# import pyspark
 import findspark
 from pyspark.sql import SparkSession
 
