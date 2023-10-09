@@ -9,7 +9,7 @@ data = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fr
 
 
 # multi-select
-stremlit.multiselect("Pick some fruits",list(data))
+streamlit.multiselect("Pick some fruits",list(data))
 
 streamlit.dataframe(data)
 
