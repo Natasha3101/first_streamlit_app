@@ -1,9 +1,9 @@
 import streamlit
 # import pyspark
-import findspark
+# import findspark
 from pyspark.sql import SparkSession
 
-findspark.init()
+# findspark.init()
 
 spark = SparkSession.builder.appName("snow01").getOrCreate()
 
