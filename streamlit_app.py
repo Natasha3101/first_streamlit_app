@@ -9,10 +9,10 @@ data = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fr
 
 data = data.set_index('Fruit')
 # multi-select
-select = streamlit.multiselect("Pick some fruits",list(data.index),['Avocado','strawberries'])
+selected_fruits = streamlit.multiselect("Pick some fruits",list(data.index))
 
-show = data.loc[select]
-streamlit.dataframe(show)
+show_selected = data.loc[selected_fruits]
+streamlit.dataframe(show_selected)
 # spark = SparkSession.builder.appName("snow01").getOrCreate()
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header("Breakfast Menu")
