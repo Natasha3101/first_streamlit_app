@@ -3,7 +3,7 @@ import streamlit
 import findspark
 from pyspark.sql import SparkSession
 
-findspark_init()
+findspark.init()
 
 spark = SparkSession.builder.appName("snow01").getOrCreate()
 
