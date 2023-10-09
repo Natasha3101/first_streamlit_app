@@ -6,7 +6,17 @@ import pandas
 
 # findspark.init()
 data = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+
+
+# multi-select
+stremlit.multiselect("Pick some fruits",list(data))
+
 streamlit.dataframe(data)
+
+
+
+
+
 
 # spark = SparkSession.builder.appName("snow01").getOrCreate()
 streamlit.title('My Parents New Healthy Diner')
