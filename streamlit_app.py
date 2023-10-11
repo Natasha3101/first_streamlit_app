@@ -14,7 +14,7 @@ streamlit.text("🐔 Hard-Boiled Free-Range Egg")
 streamlit.text("🥑🍞 Avocado Toast")
 data = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 data = data.set_index('Fruit')
-selected_fruits = streamlit.multiselect("Pick some fruits",list(data.index))
+selected_fruits = streamlit.multiselect("Pick some fruits",list(data.index),['Avocado','Banana'])
 show_selected = data.loc[selected_fruits]
 streamlit.dataframe(show_selected)
 streamlit.header("Fruityvice Fruit Advice!")
