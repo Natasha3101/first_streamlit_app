@@ -21,7 +21,7 @@ streamlit.header("Fruityvice Fruit Advice!")
 try:
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
-    streamlit.error('Please select a fruit to get information.")
+    streamlit.error("Please select a fruit to get information.")
   else:
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
 # streamlit.text(fruityvice_response.json())
@@ -34,13 +34,8 @@ except URLError as e:
 
 streamlit.stop()
 
-streamlit.header("Fruity Fruit Advice!")
-try:
-  add_my_fruit = streamlit.text_input("what fruit would you like to add?")
-  if not add_my_fruit:
-    
-    
-    streamlit.write('Thanks for adding', add_my_fruit)
+streamlit.header("Fruity Fruit Advice!") 
+streamlit.write('Thanks for adding', add_my_fruit)
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
