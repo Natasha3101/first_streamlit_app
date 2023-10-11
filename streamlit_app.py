@@ -3,6 +3,7 @@ import streamlit
 # # import findspark
 # from pyspark.sql import SparkSession
 import pandas
+import snowflake.connector
 
 # findspark.init()
 data = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
