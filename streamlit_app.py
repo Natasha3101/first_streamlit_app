@@ -18,18 +18,29 @@ selected_fruits = streamlit.multiselect("Pick some fruits",list(data.index),['Av
 show_selected = data.loc[selected_fruits]
 streamlit.dataframe(show_selected)
 streamlit.header("Fruityvice Fruit Advice!")
-fruit_choice = streamlit.text_input('What fruit would you like information about?')
-streamlit.write('The user entered ', fruit_choice)
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    streamlit.error('Please select a fruit to get information.")
+  else:
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
 # streamlit.text(fruityvice_response.json())
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
-streamlit.dataframe(fruityvice_normalized)
+    streamlit.dataframe(fruityvice_normalized)
+# streamlit.write('The user entered ', fruit_choice)
+except URLError as e:
+  streamlit.error()
 
 streamlit.stop()
+
 streamlit.header("Fruity Fruit Advice!")
-add_my_fruit = streamlit.text_input("what fruit would you like to add?")
-streamlit.write('Thanks for adding', add_my_fruit)
+try:
+  add_my_fruit = streamlit.text_input("what fruit would you like to add?")
+  if not add_my_fruit:
+    
+    
+    streamlit.write('Thanks for adding', add_my_fruit)
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
